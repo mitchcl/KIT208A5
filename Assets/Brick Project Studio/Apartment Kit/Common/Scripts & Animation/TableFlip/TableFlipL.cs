@@ -15,7 +15,7 @@ public class TableFlipL: MonoBehaviour {
     private void OnEnable()
     {
         debugScript.openButtonPressed += OpenUp;
-        Debug.Log("picked up by TableFLip.");
+        
     }
 
     private void OnDisable()
@@ -25,24 +25,18 @@ public class TableFlipL: MonoBehaviour {
 
 
     void OpenUp (){
-		{
+        {
+            Debug.Log("picked up by TableFlip.");
             if (open == false)
             {
-                if (Input.GetMouseButtonDown(0))
-                {
+                
                     StartCoroutine(opening());
-                }
+                
             }
-            else
-            {
-                if (open == true)
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        StartCoroutine(closing());
-                    }
-                }
-
+            else if (open == true){
+                    
+                    StartCoroutine(closing());
+                    
             }
 
             /*

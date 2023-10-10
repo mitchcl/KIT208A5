@@ -17,41 +17,38 @@ namespace SojaExiles
 			open = false;
 		}
 
-		void OnMouseOver()
-		{
-			{
-				if (Player)
-				{
-					float dist = Vector3.Distance(Player.position, transform.position);
-					if (dist < 15)
-					{
-						if (open == false)
-						{
-							if (Input.GetMouseButtonDown(0))
-							{
-								StartCoroutine(opening());
-							}
-						}
-						else
-						{
-							if (open == true)
-							{
-								if (Input.GetMouseButtonDown(0))
-								{
-									StartCoroutine(closing());
-								}
-							}
+        private void OnEnable()
+        {
+            debugScript.openButtonPressed += OpenUp;
 
-						}
+        }
 
-					}
-				}
+        private void OnDisable()
+        {
+            debugScript.openButtonPressed -= OpenUp;
+        }
 
-			}
 
-		}
+        void OpenUp()
+        {
+            {
+                Debug.Log("picked up by TableFlip.");
+                if (open == false)
+                {
 
-		IEnumerator opening()
+                    StartCoroutine(opening());
+
+                }
+                else if (open == true)
+                {
+
+                    StartCoroutine(closing());
+
+                }
+            }
+        }
+
+        IEnumerator opening()
 		{
 			print("you are opening the door");
 			openandclose1.Play("Opening 1");
