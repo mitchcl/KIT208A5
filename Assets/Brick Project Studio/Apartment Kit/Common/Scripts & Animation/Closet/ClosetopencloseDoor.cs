@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +12,9 @@ namespace SojaExiles
 		public Animator Closetopenandclose;
 		public bool open;
 		public Transform Player;
+        public static event Action reportDoorCheck;
 
-		void Start()
+        void Start()
 		{
 			open = false;
 		}
@@ -32,13 +34,15 @@ namespace SojaExiles
         void OpenUp()
 		{
 			{
-				Debug.Log("picked up by TableFlip.");
+				Debug.Log("Count doors.");
 				if (open == false)
 				{
 
 					StartCoroutine(opening());
+                    reportDoorCheck.Invoke();
 
-				}
+
+                }
 				else if (open == true)
 				{
 

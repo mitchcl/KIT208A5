@@ -32,7 +32,7 @@ namespace SojaExiles
         void OpenUp()
         {
             {
-                Debug.Log("picked up by TableFlip.");
+                Debug.Log("Count doors.");
                 if (open == false)
                 {
 
