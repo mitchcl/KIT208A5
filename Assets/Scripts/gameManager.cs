@@ -7,7 +7,7 @@ using UnityEngine;
 public class gameManager : MonoBehaviour
 {
 
-    [SerializeField] private int doorCount = 42;
+    [SerializeField] private int doorCount = 69;
     [SerializeField] private int currentOpenedCount = 0;
 
     private void OnEnable()
