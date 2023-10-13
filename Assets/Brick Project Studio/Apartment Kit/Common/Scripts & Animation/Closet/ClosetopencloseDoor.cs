@@ -37,10 +37,8 @@ namespace SojaExiles
 				Debug.Log("Count doors.");
 				if (open == false)
 				{
-
-					StartCoroutine(opening());
                     reportDoorCheck.Invoke();
-
+                    StartCoroutine(opening());
 
                 }
 				else if (open == true)
