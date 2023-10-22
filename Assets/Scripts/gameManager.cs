@@ -12,6 +12,7 @@ public class gameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        TableFlipL.reportDoorCheck += addToCount;
         ClosetopencloseDoor.reportDoorCheck += addToCount;
         opencloseDoor1.reportDoorCheck += addToCount;
         opencloseDoor.reportDoorCheck += addToCount;
@@ -25,6 +26,7 @@ public class gameManager : MonoBehaviour
 
     private void OnDisable()
     {
+        TableFlipL.reportDoorCheck -= addToCount;
         ClosetopencloseDoor.reportDoorCheck -= addToCount;
         opencloseDoor1.reportDoorCheck -= addToCount;
         opencloseDoor.reportDoorCheck -= addToCount;
@@ -48,8 +50,13 @@ public class gameManager : MonoBehaviour
 
     }
 
-    private void addToCount (){
-        currentOpenedCount++;
+    private void addToCount (bool hasDoorBeenOpenedAtLeastOnce){
+        Debug.Log("I get to addToCount");
+        if (hasDoorBeenOpenedAtLeastOnce == false)
+        {
+            currentOpenedCount++;
+        }
+        
     }
 
 

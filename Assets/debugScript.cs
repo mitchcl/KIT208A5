@@ -16,6 +16,7 @@ public class debugScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (OVRInput.GetDown(OVRInput.Button.One))
         {
             // Perform your desired action here
@@ -24,6 +25,7 @@ public class debugScript : MonoBehaviour
             openButtonPressed.Invoke();
 
         }
+        */
     }
 }
 

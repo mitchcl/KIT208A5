@@ -12,7 +12,8 @@ namespace SojaExiles
 		public Animator openandclose1;
 		public bool open;
 		public Transform Player;
-        public static event Action reportDoorCheck;
+        public static event Action<bool> reportDoorCheck;
+        private bool openedAtLeastOnce = false;
 
         void Start()
 		{
@@ -37,7 +38,8 @@ namespace SojaExiles
                 Debug.Log("Count doors.");
                 if (open == false)
                 {
-                    reportDoorCheck.Invoke();
+                    reportDoorCheck.Invoke(openedAtLeastOnce);
+                    openedAtLeastOnce = true;
                     StartCoroutine(opening());
 
                 }

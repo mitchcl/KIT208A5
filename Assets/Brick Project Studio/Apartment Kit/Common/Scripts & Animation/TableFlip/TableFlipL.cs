@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +8,10 @@ public class TableFlipL: MonoBehaviour {
 	public Animator FlipL;
 	public bool open;
 	public Transform Player;
+    public static event Action<bool> reportDoorCheck;
+    private bool openedAtLeastOnce = false;
 
-	void Start (){
+    void Start (){
 		open = false;
 	}
 
@@ -24,51 +27,31 @@ public class TableFlipL: MonoBehaviour {
     }
 
 
-    void OpenUp (){
+    void OpenUp()
+    {
         {
-            Debug.Log("picked up by TableFlip.");
+            Debug.Log("Count doors.");
             if (open == false)
             {
-                
-                    StartCoroutine(opening());
-                
-            }
-            else if (open == true){
-                    
-                    StartCoroutine(closing());
-                    
-            }
+                Debug.Log("Before Invoke");
+                reportDoorCheck.Invoke(openedAtLeastOnce);
+                Debug.Log("After Invoke");
+                openedAtLeastOnce = true;
+                Debug.Log("Before Coroutine");
+                StartCoroutine(opening());
+                Debug.Log("After Coroutine");
 
-            /*
-            if (Player) {
-				float dist = Vector3.Distance (Player.position, transform.position);
-				if (dist < 15) {
-					if (open == false)
+            }
+            else if (open == true)
             {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    StartCoroutine(opening());
-                }
-            }
-            else
-            {
-                if (open == true)
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        StartCoroutine(closing());
-                    }
-                }
+
+                StartCoroutine(closing());
 
             }
-                    
-				}
-			}
-            */
-
         }
-
     }
+
+
 
 	IEnumerator opening(){
 		print ("you are opening the door");
@@ -86,4 +69,6 @@ public class TableFlipL: MonoBehaviour {
 
 
 }
+
+
 

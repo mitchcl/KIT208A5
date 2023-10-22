@@ -13,7 +13,8 @@ namespace SojaExiles
 		public Animator pull_01;
 		public bool open;
 		public Transform Player;
-        public static event Action reportDoorCheck;
+        public static event Action<bool> reportDoorCheck;
+        private bool openedAtLeastOnce = false;
 
         void Start()
 		{
@@ -38,7 +39,8 @@ namespace SojaExiles
                 Debug.Log("picked up by TableFlip.");
                 if (open == false)
                 {
-                    reportDoorCheck.Invoke();
+                    reportDoorCheck.Invoke(openedAtLeastOnce);
+                    openedAtLeastOnce = true;
                     StartCoroutine(opening());
 
                 }

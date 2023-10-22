@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using OVR.OpenVR;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,37 +9,45 @@ public class TableFlipR: MonoBehaviour {
 	public Animator FlipR;
 	public bool open;
 	public Transform Player;
+    public static event Action<bool> reportDoorCheck;
+    private bool openedAtLeastOnce = false;
 
-	void Start (){
+    void Start (){
 		open = false;
 	}
 
-	void OnMouseOver (){
-		{
-			if (Player) {
-				float dist = Vector3.Distance (Player.position, transform.position);
-				if (dist < 15) {
-					if (open == false) {
-						if (Input.GetMouseButtonDown (0)) {
-							StartCoroutine (opening ());
-						}
-					} else {
-						if (open == true) {
-							if (Input.GetMouseButtonDown (0)) {
-								StartCoroutine (closing ());
-							}
-						}
+    private void OnEnable()
+    {
+        debugScript.openButtonPressed += OpenUp;
 
-					}
+    }
 
-				}
-			}
+    private void OnDisable()
+    {
+        debugScript.openButtonPressed -= OpenUp;
+    }
 
-		}
+    void OpenUp()
+    {
+        {
+            Debug.Log("Count doors.");
+            if (open == false)
+            {
+                reportDoorCheck.Invoke(openedAtLeastOnce);
+                openedAtLeastOnce = true;
+                StartCoroutine(opening());
 
-	}
+            }
+            else if (open == true)
+            {
 
-	IEnumerator opening(){
+                StartCoroutine(closing());
+
+            }
+        }
+    }
+
+    IEnumerator opening(){
 		print ("you are opening the door");
         FlipR.Play ("Rup");
 		open = true;
