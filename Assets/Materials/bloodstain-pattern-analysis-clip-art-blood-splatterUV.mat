@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: boxtest
+  m_Name: bloodstain-pattern-analysis-clip-art-blood-splatterUV
   m_Shader: {fileID: 4800000, guid: a0f7d93101230f64690418c2c3036841, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - MyMainTex:
-        m_Texture: {fileID: 2800000, guid: 3896f4ca02b49124dbe88348af6cd90b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6dcf1d33eac802b46bf437d71efb01e5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6dcf1d33eac802b46bf437d71efb01e5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -68,7 +68,7 @@ Material:
     - MyGlossiness: 0.5
     - MyLightAngle: 30
     - MyMetallic: 0
-    - MyStrengthScalor: 100
+    - MyStrengthScalor: 50
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -86,7 +86,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - MyColor: {r: 0.9150943, g: 0.082013145, b: 0.082013145, a: 1}
+    - MyColor: {r: 1, g: 1, b: 1, a: 1}
     - MyLightDirection: {r: -0, g: -0, b: -1, a: 0}
     - MyLightPosition: {r: 6, g: 2.658, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
