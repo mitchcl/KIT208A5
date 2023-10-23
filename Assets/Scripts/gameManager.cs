@@ -59,5 +59,10 @@ public class gameManager : MonoBehaviour
         
     }
 
+    public int getCurrentOpenedCount()
+    {
+        return currentOpenedCount;
+    }
+
 
 }
