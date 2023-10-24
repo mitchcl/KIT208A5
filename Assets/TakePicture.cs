@@ -10,20 +10,13 @@ public class TakePicture : MonoBehaviour
     public GameObject cameraRayOrigin3;
     public GameObject cameraRayOrigin4;
     public float raycastDistance; // Maximum distance for the raycast
-    private InventoryController inventoryController; // Reference to the InventoryController
-
-    void Start()
-    {
-        inventoryController = GetComponent<InventoryController>();
-    }
-
 
     private void Update()
     {
-        if (inventoryController.CurrentItemIsCamera() && OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             bool triggered = false;
-            Debug.Log("SecondaryIndexTrigger");
+            Debug.Log("PrimaryIndexTrigger");
             // When the trigger is pulled, cast a ray from the Oculus controller
             //Ray ray = new Ray(ovrCameraRig.centerEyeAnchor.position, ovrCameraRig.centerEyeAnchor.forward);
             Ray ray0 = new Ray(cameraRayOrigin1.transform.position, cameraRayOrigin1.transform.forward);
