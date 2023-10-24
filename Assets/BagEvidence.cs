@@ -21,7 +21,7 @@ public class BagEvidence : MonoBehaviour
 
     private void Update()
     {
-        if(inventoryController.CurrentItemIsEvidenceBag() && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        if(inventoryController.CurrentItemIsEvidenceBag() && OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             bool triggered = false;
             Debug.Log("PrimaryIndexTrigger");

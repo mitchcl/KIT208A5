@@ -9,6 +9,7 @@ public class gameManager : MonoBehaviour
 
     [SerializeField] private int doorCount = 69;
     [SerializeField] private int currentOpenedCount = 0;
+    [SerializeField] private int currentSuccessfulPhotoCount = 0;
 
     private void OnEnable()
     {

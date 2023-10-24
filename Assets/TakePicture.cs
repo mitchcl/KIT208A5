@@ -20,10 +20,10 @@ public class TakePicture : MonoBehaviour
 
     private void Update()
     {
-        if (inventoryController.CurrentItemIsCamera() && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        if (inventoryController.CurrentItemIsCamera() && OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             bool triggered = false;
-            Debug.Log("PrimaryIndexTrigger");
+            Debug.Log("SecondaryIndexTrigger");
             // When the trigger is pulled, cast a ray from the Oculus controller
             //Ray ray = new Ray(ovrCameraRig.centerEyeAnchor.position, ovrCameraRig.centerEyeAnchor.forward);
             Ray ray0 = new Ray(cameraRayOrigin1.transform.position, cameraRayOrigin1.transform.forward);

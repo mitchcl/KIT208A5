@@ -49,9 +49,11 @@ public class InventoryController : MonoBehaviour
         if (CurrentItemIsEvidenceBag())
         {
             evidenceBag.SetActive(true);
+            cameraObject.SetActive(false);
         }
         else if (CurrentItemIsCamera())
         {
+            evidenceBag.SetActive(false);
             cameraObject.SetActive(true);
         }
     }
