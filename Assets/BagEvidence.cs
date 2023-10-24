@@ -2,35 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TakePicture : MonoBehaviour
+public class BagEvidence : MonoBehaviour
 {
-    public GameObject cameraRayOrigin0;
-    public GameObject cameraRayOrigin1;
-    public GameObject cameraRayOrigin2;
-    public GameObject cameraRayOrigin3;
-    public GameObject cameraRayOrigin4;
+    public GameObject bagRayOrigin0;
+    public GameObject bagRayOrigin1;
+    public GameObject bagRayOrigin2;
+    public GameObject bagRayOrigin3;
+    public GameObject bagRayOrigin4;
     public float raycastDistance; // Maximum distance for the raycast
+
     private InventoryController inventoryController; // Reference to the InventoryController
+
 
     void Start()
     {
         inventoryController = GetComponent<InventoryController>();
     }
 
-
     private void Update()
     {
-        if (inventoryController.CurrentItemIsCamera() && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        if(inventoryController.CurrentItemIsEvidenceBag() && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             bool triggered = false;
             Debug.Log("PrimaryIndexTrigger");
             // When the trigger is pulled, cast a ray from the Oculus controller
             //Ray ray = new Ray(ovrCameraRig.centerEyeAnchor.position, ovrCameraRig.centerEyeAnchor.forward);
-            Ray ray0 = new Ray(cameraRayOrigin1.transform.position, cameraRayOrigin1.transform.forward);
-            Ray ray1 = new Ray(cameraRayOrigin1.transform.position, cameraRayOrigin1.transform.forward);
-            Ray ray2 = new Ray(cameraRayOrigin2.transform.position, cameraRayOrigin2.transform.forward);
-            Ray ray3 = new Ray(cameraRayOrigin3.transform.position, cameraRayOrigin3.transform.forward);
-            Ray ray4 = new Ray(cameraRayOrigin4.transform.position, cameraRayOrigin4.transform.forward);
+            Ray ray0 = new Ray(bagRayOrigin1.transform.position, bagRayOrigin1.transform.forward);
+            Ray ray1 = new Ray(bagRayOrigin1.transform.position, bagRayOrigin1.transform.forward);
+            Ray ray2 = new Ray(bagRayOrigin2.transform.position, bagRayOrigin2.transform.forward);
+            Ray ray3 = new Ray(bagRayOrigin3.transform.position, bagRayOrigin3.transform.forward);
+            Ray ray4 = new Ray(bagRayOrigin4.transform.position, bagRayOrigin4.transform.forward);
             RaycastHit hit0;
             RaycastHit hit1;
             RaycastHit hit2;
@@ -48,41 +49,41 @@ public class TakePicture : MonoBehaviour
             // Debug.Log("Does it have EvidenceBox tag:" + hit.collider.CompareTag("EvidenceBox"));
             //Debug.Log("Name of Object:" + hit.collider.name);
 
-            if ((Physics.Raycast(ray0, out hit0, raycastDistance)) && hit0.collider.CompareTag("EvidenceBox") && (triggered == false))
+            if ((Physics.Raycast(ray0, out hit0, raycastDistance)) && hit0.collider.CompareTag("Evidence") && (triggered == false))
             {
                 Debug.Log("Name of Object:" + hit0.collider.name);
                 // Check the tag of the raycast hit object and call the "OpenUp" function
-               // hit0.collider.gameObject.SendMessage("Evidence", SendMessageOptions.DontRequireReceiver);
+                // hit0.collider.gameObject.SendMessage("Evidence", SendMessageOptions.DontRequireReceiver);
                 hit0.collider.gameObject.SetActive(false);
                 triggered = true;
             }
-            else if ((Physics.Raycast(ray1, out hit1, raycastDistance)) && hit1.collider.CompareTag("EvidenceBox") && (triggered == false))
+            else if ((Physics.Raycast(ray1, out hit1, raycastDistance)) && hit1.collider.CompareTag("Evidence") && (triggered == false))
             {
                 Debug.Log("Name of Object:" + hit1.collider.name);
                 // Check the tag of the raycast hit object and call the "OpenUp" function
-              //  hit1.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
+                //  hit1.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
                 hit1.collider.gameObject.SetActive(false);
                 triggered = true;
             }
-            else if (((Physics.Raycast(ray2, out hit2, raycastDistance)) && hit2.collider.CompareTag("EvidenceBox")) && (triggered == false))
+            else if (((Physics.Raycast(ray2, out hit2, raycastDistance)) && hit2.collider.CompareTag("Evidence")) && (triggered == false))
             {
                 Debug.Log("Name of Object:" + hit2.collider.name);
-               // hit2.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
+                // hit2.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
                 hit2.collider.gameObject.SetActive(false);
                 triggered = true;
             }
-            else if (((Physics.Raycast(ray3, out hit3, raycastDistance)) && hit3.collider.CompareTag("EvidenceBox")) && (triggered == false))
+            else if (((Physics.Raycast(ray3, out hit3, raycastDistance)) && hit3.collider.CompareTag("Evidence")) && (triggered == false))
             {
                 Debug.Log("Name of Object:" + hit3.collider.name);
-               // hit3.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
-              hit3.collider.gameObject.SetActive(false);
-              //  triggered = true;
+                // hit3.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
+                hit3.collider.gameObject.SetActive(false);
+                //  triggered = true;
             }
-            else if (((Physics.Raycast(ray4, out hit4, raycastDistance)) && hit4.collider.CompareTag("EvidenceBox")) && (triggered == false))
+            else if (((Physics.Raycast(ray4, out hit4, raycastDistance)) && hit4.collider.CompareTag("Evidence")) && (triggered == false))
             {
                 Debug.Log("Name of Object:" + hit4.collider.name);
                 hit4.collider.gameObject.SetActive(false);
-               // hit4.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
+                // hit4.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
                 triggered = true;
             }
         }
