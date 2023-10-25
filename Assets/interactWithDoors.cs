@@ -48,8 +48,8 @@ public class OculusControllerInteraction : MonoBehaviour
             Debug.DrawRay(ray4.origin, ray4.direction * raycastDistance, Color.blue, 3.0f);
 
             Debug.Log("Did it hit sxomething:" + Physics.Raycast(ray0, out hit0, raycastDistance));
-            Debug.Log("Does it have Door tag:" + hit0.collider.CompareTag("Door"));
-            Debug.Log("Does it have Equipment tag:" + hit0.collider.CompareTag("Equipment"));
+            //Debug.Log("Does it have Door tag:" + hit0.collider.CompareTag("Door"));
+            //Debug.Log("Does it have Equipment tag:" + hit0.collider.CompareTag("Equipment"));
             Debug.Log("Name of Object:" + hit0.collider.name);
 
             if ((Physics.Raycast(ray0, out hit0, raycastDistance)) && hit0.collider.CompareTag("Door") && (triggered == false))

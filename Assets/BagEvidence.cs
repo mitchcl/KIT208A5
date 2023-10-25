@@ -40,11 +40,11 @@ public class BagEvidence : MonoBehaviour
             RaycastHit hit4;
 
             // Draw the ray for debugging
-            Debug.DrawRay(ray0.origin, ray0.direction * raycastDistance, Color.blue, 3.0f);
-            Debug.DrawRay(ray1.origin, ray1.direction * raycastDistance, Color.blue, 3.0f);
-            Debug.DrawRay(ray2.origin, ray2.direction * raycastDistance, Color.blue, 3.0f);
-            Debug.DrawRay(ray3.origin, ray3.direction * raycastDistance, Color.blue, 3.0f);
-            Debug.DrawRay(ray4.origin, ray4.direction * raycastDistance, Color.blue, 3.0f);
+            Debug.DrawRay(ray0.origin, ray0.direction * raycastDistance, Color.cyan, 3.0f);
+            Debug.DrawRay(ray1.origin, ray1.direction * raycastDistance, Color.cyan, 3.0f);
+            Debug.DrawRay(ray2.origin, ray2.direction * raycastDistance, Color.cyan, 3.0f);
+            Debug.DrawRay(ray3.origin, ray3.direction * raycastDistance, Color.cyan, 3.0f);
+            Debug.DrawRay(ray4.origin, ray4.direction * raycastDistance, Color.cyan, 3.0f);
 
             Debug.Log("Did it hit sxomething:" + Physics.Raycast(ray1, out hit1, raycastDistance));
             // Debug.Log("Does it have EvidenceBox tag:" + hit.collider.CompareTag("EvidenceBox"));
