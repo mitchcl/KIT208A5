@@ -12,6 +12,15 @@ public class OculusControllerInteraction : MonoBehaviour
     public GameObject openDoorRayOrigin4;
     public float raycastDistance; // Maximum distance for the raycast
 
+    private InventoryController inventoryController;
+
+
+    void Start()
+    {
+        inventoryController = GetComponent<InventoryController>();
+    }
+
+
     private void Update()
     {
         if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
@@ -38,9 +47,10 @@ public class OculusControllerInteraction : MonoBehaviour
             Debug.DrawRay(ray3.origin, ray3.direction * raycastDistance, Color.blue, 3.0f);
             Debug.DrawRay(ray4.origin, ray4.direction * raycastDistance, Color.blue, 3.0f);
 
-            Debug.Log("Did it hit sxomething:" + Physics.Raycast(ray1, out hit1, raycastDistance));
-            // Debug.Log("Does it have Door tag:" + hit.collider.CompareTag("Door"));
-            //Debug.Log("Name of Object:" + hit.collider.name);
+            Debug.Log("Did it hit sxomething:" + Physics.Raycast(ray0, out hit0, raycastDistance));
+            //Debug.Log("Does it have Door tag:" + hit0.collider.CompareTag("Door"));
+            //Debug.Log("Does it have Equipment tag:" + hit0.collider.CompareTag("Equipment"));
+            Debug.Log("Name of Object:" + hit0.collider.name);
 
             if ((Physics.Raycast(ray0, out hit0, raycastDistance)) && hit0.collider.CompareTag("Door") && (triggered == false))
             {
@@ -74,6 +84,44 @@ public class OculusControllerInteraction : MonoBehaviour
                 hit4.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
                 triggered = true;
             }
+            // EQUIPMENT
+            else if ((Physics.Raycast(ray0, out hit0, raycastDistance)) && hit0.collider.CompareTag("Equipment") && (triggered == false))
+            {
+                Debug.Log("Name of Object:" + hit0.collider.name);
+                inventoryController.AddItem(hit0.collider.gameObject); // Add the object hit by the ray to the inventory
+                hit0.collider.gameObject.SetActive(false);
+                triggered = true;
+            }
+            else if ((Physics.Raycast(ray1, out hit1, raycastDistance)) && hit1.collider.CompareTag("Equipment") && (triggered == false))
+            {
+                Debug.Log("Name of Object:" + hit1.collider.name);
+                inventoryController.AddItem(hit1.collider.gameObject); // Add the object hit by the ray to the inventory
+                hit1.collider.gameObject.SetActive(false);
+                triggered = true;
+            }
+            else if (((Physics.Raycast(ray2, out hit2, raycastDistance)) && hit2.collider.CompareTag("Equipment")) && (triggered == false))
+            {
+                Debug.Log("Name of Object:" + hit2.collider.name);
+                inventoryController.AddItem(hit2.collider.gameObject); // Add the object hit by the ray to the inventory
+                hit2.collider.gameObject.SetActive(false);
+                triggered = true;
+            }
+            else if (((Physics.Raycast(ray3, out hit3, raycastDistance)) && hit3.collider.CompareTag("Equipment")) && (triggered == false))
+            {
+                Debug.Log("Name of Object:" + hit3.collider.name);
+                inventoryController.AddItem(hit3.collider.gameObject); // Add the object hit by the ray to the inventory
+                hit3.collider.gameObject.SetActive(false);
+                triggered = true;
+            }
+            else if (((Physics.Raycast(ray4, out hit4, raycastDistance)) && hit4.collider.CompareTag("Equipment")) && (triggered == false))
+            {
+                Debug.Log("Name of Object:" + hit4.collider.name);
+                inventoryController.AddItem(hit4.collider.gameObject); // Add the object hit by the ray to the inventory
+                hit4.collider.gameObject.SetActive(false);
+                triggered = true;
+            }
+
         }
     }
 }
+

@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class gameManager : MonoBehaviour
 {
-
+    private int currentPictureCount = 0;
+    private int currentBaggedEvidenceCount = 0;
     [SerializeField] private int doorCount = 69;
     [SerializeField] private int currentOpenedCount = 0;
 
@@ -21,6 +22,10 @@ public class gameManager : MonoBehaviour
         Drawer_Pull_Zopp.reportDoorCheck += addToCount;
         Drawer_Pull_X.reportDoorCheck += addToCount;
         Drawer_Pull_Z.reportDoorCheck += addToCount;
+        TakePicture.reportPictureTaken += addToPictureCount;
+        BagEvidence.reportBaggedEvidence += addToEvidenceBagCount;
+        
+
 
     }
 
@@ -35,6 +40,8 @@ public class gameManager : MonoBehaviour
         Drawer_Pull_Zopp.reportDoorCheck -= addToCount;
         Drawer_Pull_X.reportDoorCheck -= addToCount;
         Drawer_Pull_Z.reportDoorCheck -= addToCount;
+        TakePicture.reportPictureTaken -= addToPictureCount;
+        BagEvidence.reportBaggedEvidence -= addToEvidenceBagCount;
     }
 
     // Start is called before the first frame update
@@ -57,6 +64,31 @@ public class gameManager : MonoBehaviour
             currentOpenedCount++;
         }
         
+    }
+
+    private void addToPictureCount(bool hasTakenPicture)
+    {
+        if (hasTakenPicture)
+        {
+           
+            currentPictureCount++;
+            Debug.Log("Taken picture, current count is: " + currentPictureCount);
+        }
+    }
+
+    private void addToEvidenceBagCount(bool hasBaggedEvidence)
+    {
+        if (hasBaggedEvidence)
+        {
+
+            currentBaggedEvidenceCount++;
+            Debug.Log("Bagged evidence, current count is: " + currentBaggedEvidenceCount);
+        }
+    }
+
+    public int getCurrentOpenedCount()
+    {
+        return currentOpenedCount;
     }
 
 

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Door
+  - RoomLight
+  - SamplesInfoPanel
+  - EvidenceBox
+  - Equipment
+  - Evidence
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,7 @@ Shader "Revealing Under Light"
 	Properties
 	{
 		MyColor("Color", Color) = (1,1,1,1)
-		MyMainTex("Albedo (RGB)", 2D) = "white" {}
+		MyMainTex("Texture", 2D) = "white" {}
 		MyGlossiness("Smoothness", Range(0,1)) = 0.5
 		MyMetallic("Metallic", Range(0,1)) = 0.0
 		MyLightDirection("Light Direction", Vector) = (0,0,1,0)
