@@ -12,6 +12,9 @@ public class TakePicture : MonoBehaviour
     public float raycastDistance; // Maximum distance for the raycast
     private InventoryController inventoryController; // Reference to the InventoryController
 
+    public delegate void PictureTakenAction(bool hasTakenPicture);
+    public static event PictureTakenAction reportPictureTaken;
+
     void Start()
     {
         inventoryController = GetComponent<InventoryController>();
@@ -54,6 +57,7 @@ public class TakePicture : MonoBehaviour
                 // Check the tag of the raycast hit object and call the "OpenUp" function
                 // hit0.collider.gameObject.SendMessage("Evidence", SendMessageOptions.DontRequireReceiver);
                 hit0.collider.gameObject.SetActive(false);
+                TakePicture.reportPictureTaken?.Invoke(true);
                 triggered = true;
             }
             else if ((Physics.Raycast(ray1, out hit1, raycastDistance)) && hit1.collider.CompareTag("EvidenceBox") && (triggered == false))
@@ -61,6 +65,7 @@ public class TakePicture : MonoBehaviour
                 Debug.Log("Name of Object:" + hit1.collider.name);
                 // Check the tag of the raycast hit object and call the "OpenUp" function
                 //  hit1.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
+                TakePicture.reportPictureTaken?.Invoke(true);
                 hit1.collider.gameObject.SetActive(false);
                 triggered = true;
             }
@@ -68,6 +73,7 @@ public class TakePicture : MonoBehaviour
             {
                 Debug.Log("Name of Object:" + hit2.collider.name);
                 // hit2.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
+                TakePicture.reportPictureTaken?.Invoke(true);
                 hit2.collider.gameObject.SetActive(false);
                 triggered = true;
             }
@@ -75,6 +81,7 @@ public class TakePicture : MonoBehaviour
             {
                 Debug.Log("Name of Object:" + hit3.collider.name);
                 // hit3.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
+                TakePicture.reportPictureTaken?.Invoke(true);
                 hit3.collider.gameObject.SetActive(false);
                 //  triggered = true;
             }
@@ -83,6 +90,7 @@ public class TakePicture : MonoBehaviour
                 Debug.Log("Name of Object:" + hit4.collider.name);
                 hit4.collider.gameObject.SetActive(false);
                 // hit4.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
+                TakePicture.reportPictureTaken?.Invoke(true);
                 triggered = true;
             }
         }
