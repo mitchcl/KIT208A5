@@ -22,6 +22,11 @@ public class ScenePicker : MonoBehaviour
     public GameObject blood2;
     public GameObject blood3;
 
+    public GameObject noBlood1;
+    public GameObject noBlood2;
+    public GameObject noBlood3;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,20 +72,27 @@ public class ScenePicker : MonoBehaviour
                 wine3.SetActive(true);
             }
 
+        noBlood1.SetActive(false);
+        noBlood2.SetActive(false);
+        noBlood3.SetActive(false);
         int blood = UnityEngine.Random.Range(1, 4);
-        if (blood == 1)
-        {
-            blood1.SetActive(false);
+            if (blood == 1)
+            {
+                blood1.SetActive(false);
+                noBlood1.SetActive(true);
+            }
+            else if (blood == 2)
+            {
+                blood2.SetActive(false);
+                noBlood2.SetActive(true);
+
+            }
+            else if (blood == 3)
+            {
+                blood3.SetActive(false);
+                noBlood3.SetActive(true);
+            }
         }
-        else if (blood == 2)
-        {
-            blood2.SetActive(false);
-        }
-        else if (blood == 3)
-        {
-            blood3.SetActive(false);
-        }
-    }
 
     // Update is called once per frame
     void Update()

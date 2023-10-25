@@ -12,6 +12,7 @@ TagManager:
   - Evidence
   - Button
   - Train
+  - UV
   layers:
   - Default
   - TransparentFX

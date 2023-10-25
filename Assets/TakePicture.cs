@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class TakePicture : MonoBehaviour
     public GameObject cameraRayOrigin4;
     public float raycastDistance; // Maximum distance for the raycast
     private InventoryController inventoryController; // Reference to the InventoryController
+    public GameObject UvLight;
+    private Boolean UVON = false;
 
     public delegate void PictureTakenAction(bool hasTakenPicture);
     public static event PictureTakenAction reportPictureTaken;
@@ -23,6 +26,10 @@ public class TakePicture : MonoBehaviour
 
     private void Update()
     {
+        
+
+
+
         if (inventoryController.CurrentItemIsCamera() && OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             bool triggered = false;
