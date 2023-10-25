@@ -58,7 +58,7 @@ public class gameManager : MonoBehaviour
     }
 
     private void addToCount (bool hasDoorBeenOpenedAtLeastOnce){
-        Debug.Log("I get to addToCount");
+        UnityEngine.Debug.Log("I get to addToCount");
         if (hasDoorBeenOpenedAtLeastOnce == false)
         {
             currentOpenedCount++;
@@ -72,7 +72,7 @@ public class gameManager : MonoBehaviour
         {
            
             currentPictureCount++;
-            Debug.Log("Taken picture, current count is: " + currentPictureCount);
+            UnityEngine.Debug.Log("Taken picture, current count is: " + currentPictureCount);
         }
     }
 
@@ -82,7 +82,7 @@ public class gameManager : MonoBehaviour
         {
 
             currentBaggedEvidenceCount++;
-            Debug.Log("Bagged evidence, current count is: " + currentBaggedEvidenceCount);
+            UnityEngine.Debug.Log("Bagged evidence, current count is: " + currentBaggedEvidenceCount);
         }
     }
 

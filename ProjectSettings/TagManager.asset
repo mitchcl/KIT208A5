@@ -10,6 +10,8 @@ TagManager:
   - EvidenceBox
   - Equipment
   - Evidence
+  - Button
+  - Train
   layers:
   - Default
   - TransparentFX

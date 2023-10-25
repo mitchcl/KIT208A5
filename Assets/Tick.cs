@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ToggleTick : MonoBehaviour
+public class Tick : MonoBehaviour
 {
     public GameObject targetObject2Activate;
     public GameObject targetObjectBecomeInactive;
