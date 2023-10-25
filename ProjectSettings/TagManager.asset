@@ -9,6 +9,7 @@ TagManager:
   - SamplesInfoPanel
   - EvidenceBox
   - Equipment
+  - Evidence
   layers:
   - Default
   - TransparentFX
