@@ -121,6 +121,37 @@ public class OculusControllerInteraction : MonoBehaviour
                 triggered = true;
             }
 
+            //Buttons
+            else if ((Physics.Raycast(ray0, out hit0, raycastDistance)) && hit0.collider.CompareTag("Button") && (triggered == false))
+            {
+                UnityEngine.Debug.Log("Name of Object:" + hit0.collider.name);
+                hit0.collider.gameObject.SetActive(false);
+                triggered = true;
+            }
+            else if ((Physics.Raycast(ray1, out hit1, raycastDistance)) && hit1.collider.CompareTag("Button") && (triggered == false))
+            {
+                UnityEngine.Debug.Log("Name of Object:" + hit1.collider.name);
+                hit1.collider.gameObject.SetActive(false);
+                triggered = true;
+            }
+            else if (((Physics.Raycast(ray2, out hit2, raycastDistance)) && hit2.collider.CompareTag("Button")) && (triggered == false))
+            {
+                UnityEngine.Debug.Log("Name of Object:" + hit2.collider.name);
+                hit2.collider.gameObject.SetActive(false);
+                triggered = true;
+            }
+            else if (((Physics.Raycast(ray3, out hit3, raycastDistance)) && hit3.collider.CompareTag("Button")) && (triggered == false))
+            {
+                UnityEngine.Debug.Log("Name of Object:" + hit3.collider.name);
+                hit3.collider.gameObject.SetActive(false);
+                triggered = true;
+            }
+            else if (((Physics.Raycast(ray4, out hit4, raycastDistance)) && hit4.collider.CompareTag("Button")) && (triggered == false))
+            {
+                UnityEngine.Debug.Log("Name of Object:" + hit4.collider.name);
+                hit4.collider.gameObject.SetActive(false);
+                triggered = true;
+            }
         }
     }
 }

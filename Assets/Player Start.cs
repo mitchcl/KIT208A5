@@ -2,17 +2,25 @@ using UnityEngine;
 
 public class Begin : MonoBehaviour
 {
-    public GameObject[] trainingText;
+    public GameObject[] trainingText = new GameObject[100];
     public GameObject trainButton;
     public GameObject testButton;
     public GameObject player;
     public GameObject teleportToStart;
     public GameObject finishButton;
     public GameObject telportToFinish;
+
+    bool train = true;
+    bool test = true;
     // Start is called before the first frame update
     void Start()
     {
         trainingText = GameObject.FindGameObjectsWithTag("Train");
+        //for (int i = 0; trainingText[i] != null; i++)
+        //{
+            //UnityEngine.Debug.Log(trainingText[i].name);
+        //}
+        
     }
 
     // Update is called once per frame
@@ -20,18 +28,30 @@ public class Begin : MonoBehaviour
     {
         if (!testButton.activeSelf)
         {
-            player.transform.position = teleportToStart.transform.position;
-            for (int i = 0; trainingText[i] != null; i++)
+            if (test)
             {
-                trainingText[i].SetActive(false);
+                player.transform.position = teleportToStart.transform.position;
+                player.transform.position = teleportToStart.transform.position;
+                player.transform.position = teleportToStart.transform.position;
+
+                for (int i = 0; i == 13; i++)
+                {
+                    //UnityEngine.Debug.Log(i);
+                    trainingText[i].SetActive(false);
+                }
+                testButton.SetActive(true);
+                test = false;
             }
-            testButton.SetActive(true);
         }
 
         if (!trainButton.activeSelf)
         {
-            player.transform.position = teleportToStart.transform.position;
-            trainButton.SetActive(true);
+            if (train)
+            {
+                player.transform.position = teleportToStart.transform.position;
+                trainButton.SetActive(true);
+                train = false;
+            }
         }
         
         if (!finishButton.activeSelf) 
