@@ -14,6 +14,14 @@ public class UvLight : MonoBehaviour
     private InventoryController inventoryController; // Reference to the InventoryController
     public GameObject UvLightSource;
     private Boolean UVON = false;
+    [SerializeField] private AudioSource turnOnUV;
+
+
+
+    void Start()
+    {
+        inventoryController = GetComponent<InventoryController>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,10 +33,10 @@ public class UvLight : MonoBehaviour
             {
                 UvLightSource.SetActive(true);
                 UVON = true;
+                turnOnUV.Play();
             }
             else
             {
-                UvLightSource.SetActive(false);
                 UvLightSource.SetActive(false);
                 UVON = false;
             }

@@ -14,6 +14,7 @@ public class TakePicture : MonoBehaviour
     private InventoryController inventoryController; // Reference to the InventoryController
     public GameObject UvLight;
     private Boolean UVON = false;
+    [SerializeField] private AudioSource shutterSoundEffect;
 
     public delegate void PictureTakenAction(bool hasTakenPicture);
     public static event PictureTakenAction reportPictureTaken;
@@ -65,6 +66,7 @@ public class TakePicture : MonoBehaviour
                 // hit0.collider.gameObject.SendMessage("Evidence", SendMessageOptions.DontRequireReceiver);
                 hit0.collider.gameObject.SetActive(false);
                 TakePicture.reportPictureTaken?.Invoke(true);
+                shutterSoundEffect.Play();
                 triggered = true;
             }
             else if ((Physics.Raycast(ray1, out hit1, raycastDistance)) && hit1.collider.CompareTag("EvidenceBox") && (triggered == false))
@@ -74,6 +76,7 @@ public class TakePicture : MonoBehaviour
                 //  hit1.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
                 TakePicture.reportPictureTaken?.Invoke(true);
                 hit1.collider.gameObject.SetActive(false);
+                shutterSoundEffect.Play();
                 triggered = true;
             }
             else if (((Physics.Raycast(ray2, out hit2, raycastDistance)) && hit2.collider.CompareTag("EvidenceBox")) && (triggered == false))
@@ -82,6 +85,7 @@ public class TakePicture : MonoBehaviour
                 // hit2.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
                 TakePicture.reportPictureTaken?.Invoke(true);
                 hit2.collider.gameObject.SetActive(false);
+                shutterSoundEffect.Play();
                 triggered = true;
             }
             else if (((Physics.Raycast(ray3, out hit3, raycastDistance)) && hit3.collider.CompareTag("EvidenceBox")) && (triggered == false))
@@ -90,6 +94,7 @@ public class TakePicture : MonoBehaviour
                 // hit3.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
                 TakePicture.reportPictureTaken?.Invoke(true);
                 hit3.collider.gameObject.SetActive(false);
+                shutterSoundEffect.Play();
                 //  triggered = true;
             }
             else if (((Physics.Raycast(ray4, out hit4, raycastDistance)) && hit4.collider.CompareTag("EvidenceBox")) && (triggered == false))
@@ -98,6 +103,7 @@ public class TakePicture : MonoBehaviour
                 hit4.collider.gameObject.SetActive(false);
                 // hit4.collider.gameObject.SendMessage("OpenUp", SendMessageOptions.DontRequireReceiver);
                 TakePicture.reportPictureTaken?.Invoke(true);
+                shutterSoundEffect.Play();
                 triggered = true;
             }
         }

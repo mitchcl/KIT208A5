@@ -8,6 +8,7 @@ public class InventoryController : MonoBehaviour
     public GameObject inventoryHolder;
     public GameObject evidenceBag;
     public GameObject cameraObject;
+    public AudioSource selectPlasticBag;
 
     private class InventoryNode
     {
@@ -50,6 +51,7 @@ public class InventoryController : MonoBehaviour
         {
             evidenceBag.SetActive(true);
             cameraObject.SetActive(false);
+            selectPlasticBag.Play();
         }
         else if (CurrentItemIsCamera())
         {
