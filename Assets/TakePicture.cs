@@ -106,6 +106,53 @@ public class TakePicture : MonoBehaviour
                 shutterSoundEffect.Play();
                 triggered = true;
             }
+
+
+
+
+            //Take Picture of UV
+
+            if ((Physics.Raycast(ray0, out hit0, raycastDistance)) && hit0.collider.CompareTag("UVEvidence") && (triggered == false))
+            {
+                UnityEngine.Debug.Log("Name of Object:" + hit0.collider.name);
+                // Check the tag of the raycast hit object and call the "OpenUp" function
+                triggered = true;
+                TakePicture.reportPictureTaken?.Invoke(true);
+                shutterSoundEffect.Play();
+                
+            }
+            else if ((Physics.Raycast(ray1, out hit1, raycastDistance)) && hit1.collider.CompareTag("UVEvidence") && (triggered == false))
+            {
+                UnityEngine.Debug.Log("Name of Object:" + hit1.collider.name);
+                // Check the tag of the raycast hit object and call the "OpenUp" function
+                triggered = true;
+                TakePicture.reportPictureTaken?.Invoke(true);
+                shutterSoundEffect.Play();
+            }
+            else if (((Physics.Raycast(ray2, out hit2, raycastDistance)) && hit2.collider.CompareTag("UVEvidence")) && (triggered == false))
+            {
+                UnityEngine.Debug.Log("Name of Object:" + hit2.collider.name);
+                // Check the tag of the raycast hit object and call the "OpenUp" function
+                triggered = true;
+                TakePicture.reportPictureTaken?.Invoke(true);
+                shutterSoundEffect.Play();
+            }
+            else if (((Physics.Raycast(ray3, out hit3, raycastDistance)) && hit3.collider.CompareTag("UVEvidence")) && (triggered == false))
+            {
+                UnityEngine.Debug.Log("Name of Object:" + hit3.collider.name);
+                // Check the tag of the raycast hit object and call the "OpenUp" function
+                triggered = true;
+                TakePicture.reportPictureTaken?.Invoke(true);
+                shutterSoundEffect.Play();
+            }
+            else if (((Physics.Raycast(ray4, out hit4, raycastDistance)) && hit4.collider.CompareTag("UVEvidence")) && (triggered == false))
+            {
+                UnityEngine.Debug.Log("Name of Object:" + hit4.collider.name);
+                // Check the tag of the raycast hit object and call the "OpenUp" function
+                triggered = true;
+                TakePicture.reportPictureTaken?.Invoke(true);
+                shutterSoundEffect.Play();
+            }
         }
     }
 }

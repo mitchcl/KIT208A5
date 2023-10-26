@@ -12,6 +12,7 @@ public class ToggleVisible : MonoBehaviour
     
     public void ToggleVisiblity()
     {
+        Debug.Log("ToggleVisiblity");
         if (isBloodTileActive == false)
         {
             isBloodTileActive = true;

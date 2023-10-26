@@ -3,13 +3,21 @@ using SojaExiles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEditor.Callbacks;
 
 public class gameManager : MonoBehaviour
 {
-    private int currentPictureCount = 0;
-    private int currentBaggedEvidenceCount = 0;
-    [SerializeField] private int doorCount = 69;
-    [SerializeField] private int currentOpenedCount = 0;
+    public TMP_Text ScoreDisplay;
+    [SerializeField] private float pictureCountTotal = 7;
+    [SerializeField] private float currentPictureCount = 0;
+    [SerializeField] private float baggedCountTotal = 4;
+    [SerializeField] private float currentBaggedEvidenceCount = 0;
+    [SerializeField] private float doorCountTotal = 61;
+    [SerializeField] private float currentOpenedCount = 0;
+    [SerializeField] private float tickCountTotal = 3;
+    [SerializeField] private float tickCount = 0;
+
 
     private void OnEnable()
     {
@@ -24,7 +32,9 @@ public class gameManager : MonoBehaviour
         Drawer_Pull_Z.reportDoorCheck += addToCount;
         TakePicture.reportPictureTaken += addToPictureCount;
         BagEvidence.reportBaggedEvidence += addToEvidenceBagCount;
-        
+        Tick.reportTick += incrementTick;
+
+
 
 
     }
@@ -42,6 +52,7 @@ public class gameManager : MonoBehaviour
         Drawer_Pull_Z.reportDoorCheck -= addToCount;
         TakePicture.reportPictureTaken -= addToPictureCount;
         BagEvidence.reportBaggedEvidence -= addToEvidenceBagCount;
+        Tick.reportTick -= incrementTick;
     }
 
     // Start is called before the first frame update
@@ -54,6 +65,28 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        displayScore();
+    }
+
+    private void displayScore()
+    {
+        float evidenceTotal = pictureCountTotal + baggedCountTotal;
+        float evidenceCurrent = currentPictureCount + currentBaggedEvidenceCount;
+        float percentageEvidenceComplete = (evidenceCurrent / evidenceTotal) * 100;
+        float percentageDoorsComplete = (currentOpenedCount / doorCountTotal) * 100;
+        float percentageEvidenceCompleteFinal = (evidenceCurrent / evidenceTotal) * 70;
+        float percentageDoorsCompleteFinal = (currentOpenedCount / doorCountTotal) * 30;
+        float percentageFinal = (percentageEvidenceCompleteFinal + percentageDoorsCompleteFinal);
+        if (tickCount == tickCountTotal)
+        {
+            //Debug.Log("Evidence found and processed: " + percentageEvidenceComplete.ToString("F2") + "% \n" + "Search Thoroughness: " + percentageDoorsComplete.ToString("F2") + "% \n" + "Final Score: " + percentageFinal.ToString("F2") + "%");
+            ScoreDisplay.SetText("Evidence found and processed: " + percentageEvidenceComplete.ToString("F2") + "% \n" + "Search Thoroughness: " + percentageDoorsComplete.ToString("F2") + "% \n" + "Final Score: " + percentageFinal.ToString("F2") + "%");
+
+        }
+        else
+        {
+            ScoreDisplay.SetText("Evidence found and processed: " + percentageEvidenceComplete.ToString("F2") + "% \n" + "Search Thoroughness: " + percentageDoorsComplete.ToString("F2") + "% \n" + "Final Score: 0% \n Failed to equip essential gear");
+        }
 
     }
 
@@ -86,7 +119,12 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    public int getCurrentOpenedCount()
+    private void incrementTick()
+    {
+        tickCount++;
+    }
+
+    public float getCurrentOpenedCount()
     {
         return currentOpenedCount;
     }

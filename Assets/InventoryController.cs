@@ -103,6 +103,7 @@ public class InventoryController : MonoBehaviour
         if (CurrentItemIsEvidenceBag())
         {
             evidenceBag.SetActive(true);
+            selectPlasticBag.Play();
         }
         else if (CurrentItemIsCamera())
         {

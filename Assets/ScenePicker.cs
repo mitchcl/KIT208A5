@@ -26,10 +26,40 @@ public class ScenePicker : MonoBehaviour
     public GameObject noBlood2;
     public GameObject noBlood3;
 
+    //public GameObject[] turnOffEvidence;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        /*turnOffEvidence = GameObject.FindGameObjectsWithTag("Evidence");
+
+        foreach (GameObject obj in turnOffEvidence)
+        {
+            obj.SetActive(false);
+        }
+        */
+
+        phone1.SetActive(false);
+        phone2.SetActive(false); ;
+        phone3.SetActive(false); ;
+
+        knife1.SetActive(false); ;
+        knife2.SetActive(false); ;
+        knife3.SetActive(false); ;
+
+        wine1.SetActive(false); ;
+        wine2.SetActive(false); ;
+        wine3.SetActive(false); ;
+
+        blood1.SetActive(false); ;
+        blood2.SetActive(false); ;
+        blood3.SetActive(false); ;
+
+        noBlood1.SetActive(false); ;
+        noBlood2.SetActive(false); ;
+        noBlood3.SetActive(false); ;
+
         int phone = UnityEngine.Random.Range(1, 4);
         if (phone == 1)
         {
@@ -58,41 +88,22 @@ public class ScenePicker : MonoBehaviour
             knife3.SetActive(true);
         }
 
-         int wine = UnityEngine.Random.Range(1, 4);
-         if (wine == 1)
+        int wine = UnityEngine.Random.Range(1, 4);
+        if (wine == 1)
         {
             wine1.SetActive(true);
         }
-            else if (wine == 2)
+        else if (wine == 2)
         {
-                wine2.SetActive(true);
-            }
-            else if (wine == 3)
-        {
-                wine3.SetActive(true);
-            }
-
-        noBlood1.SetActive(false);
-        noBlood2.SetActive(false);
-        noBlood3.SetActive(false);
-        int blood = UnityEngine.Random.Range(1, 4);
-            if (blood == 1)
-            {
-                blood1.SetActive(false);
-                noBlood1.SetActive(true);
-            }
-            else if (blood == 2)
-            {
-                blood2.SetActive(false);
-                noBlood2.SetActive(true);
-
-            }
-            else if (blood == 3)
-            {
-                blood3.SetActive(false);
-                noBlood3.SetActive(true);
-            }
+            wine2.SetActive(true);
         }
+        else if (wine == 3)
+        {
+            wine3.SetActive(true);
+        }
+
+
+    }   
 
     // Update is called once per frame
     void Update()
