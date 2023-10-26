@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Begin : MonoBehaviour
 {
-    public GameObject[] trainingText = new GameObject[100];
+    public GameObject[] trainingText;
     public GameObject trainButton;
     public GameObject testButton;
     public GameObject player;
@@ -34,10 +34,10 @@ public class Begin : MonoBehaviour
                 player.transform.position = teleportToStart.transform.position;
                 player.transform.position = teleportToStart.transform.position;
 
-                for (int i = 0; i == 13; i++)
+                foreach (GameObject obj in trainingText)
                 {
-                    //UnityEngine.Debug.Log(i);
-                    trainingText[i].SetActive(false);
+                    UnityEngine.Debug.Log("I am in the loop");
+                    obj.SetActive(false);
                 }
                 testButton.SetActive(true);
                 test = false;
