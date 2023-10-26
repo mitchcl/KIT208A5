@@ -1343,6 +1343,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Button
       objectReference: {fileID: 0}
+    - target: {fileID: 8157303405235915847, guid: c01b75eb3ad3c9943993b94f95f9f875, type: 3}
+      propertyPath: m_text
+      value: 'Welcome to
+
+        "CSI VR Training Sim"'
+      objectReference: {fileID: 0}
     - target: {fileID: 8334120779130008026, guid: c01b75eb3ad3c9943993b94f95f9f875, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3490,6 +3496,8 @@ MonoBehaviour:
   currentBaggedEvidenceCount: 0
   doorCountTotal: 61
   currentOpenedCount: 0
+  tickCountTotal: 3
+  tickCount: 0
 --- !u!4 &901543988
 Transform:
   m_ObjectHideFlags: 0
