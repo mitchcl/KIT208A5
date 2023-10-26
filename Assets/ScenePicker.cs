@@ -22,9 +22,9 @@ public class ScenePicker : MonoBehaviour
     public GameObject blood2;
     public GameObject blood3;
 
-    public GameObject noBlood1;
-    public GameObject noBlood2;
-    public GameObject noBlood3;
+    //public GameObject noBlood1;
+    //public GameObject noBlood2;
+    //public GameObject noBlood3;
 
     //public GameObject[] turnOffEvidence;
 
@@ -56,9 +56,9 @@ public class ScenePicker : MonoBehaviour
         blood2.SetActive(false); ;
         blood3.SetActive(false); ;
 
-        noBlood1.SetActive(false); ;
-        noBlood2.SetActive(false); ;
-        noBlood3.SetActive(false); ;
+        //noBlood1.SetActive(false); ;
+        //noBlood2.SetActive(false); ;
+        //noBlood3.SetActive(false); ;
 
         int phone = UnityEngine.Random.Range(1, 4);
         if (phone == 1)
